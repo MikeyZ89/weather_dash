@@ -19,9 +19,9 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col">
                 <h1 class="head1">Weather Dashboard</h1>
             </div>
         </div>
@@ -29,7 +29,23 @@
             <div class="col-md-3" id="search"></div>
             <div class="col-md-9">
                 <div class="row">
-                    <div class="col-md-12" id="cityweather"></div>
+                    <div class="col-md-12" id="cityweather">
+                        <div class="row" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="col-md-12">
+                                <div class="city"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="temp"></div>
+                                <br>
+                                <div class="humidity"></div>
+                                <br>
+                                <div class="wind"></div>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12" id="forecast"></div>
@@ -37,6 +53,31 @@
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        var APIKey = "43f958adadb070693b1f19cfabbcb491";
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?units=imperial&q=Bujumbura,Burundi&appid=" + APIKey;
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+
+      var city = response.name
+      var wind = response.wind.speed
+      var humidity = response.main.humidity
+      var temp = response.main.temp
+      
+
+      $(".city").text(city);
+      $(".temp").text("Temperature:_" + temp + "°F");
+      $(".humidity").text("Humidity:_" + humidity + "%");
+      $(".wind").text("Wind Speed:_" + wind);
+      
+
+    });
+
+
+    </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
