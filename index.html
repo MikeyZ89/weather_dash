@@ -21,16 +21,20 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col">
-                <h1 class="head1">Weather Dashboard</h1>
+            <div class="col text-center bg-dark text-light mr-0 ml-0 pr-0 pl-0 pt-2 pb-2">
+                <h1>Weather Dashboard</h1>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3" id="search"></div>
+            <div class="col-md-3" id="search">
+                <p class="text-left pt-2 pl-2" style="font-family: Arial;">Search for a city:</p>
+                <textarea class="input"></textarea>
+                <button></button>
+            </div>
             <div class="col-md-9">
                 <div class="row">
                     <div class="col-md-12" id="cityweather">
-                        <div class="row" style="padding-top: 20px; padding-bottom: 20px;">
+                        <div class="row pt-2 pb-2">
                             <div class="col-md-12">
                                 <div class="city"></div>
                             </div>
@@ -62,6 +66,10 @@
       method: "GET"
     }).then(function(response) {
 
+        // var results = response.data;
+        // console.log(results);
+        // console.log(response);
+        // console.log(response.uv);
       var city = response.name
       var wind = response.wind.speed
       var humidity = response.main.humidity
@@ -73,7 +81,7 @@
       $(".humidity").text("Humidity:_" + humidity + "%");
       $(".wind").text("Wind Speed:_" + wind);
       
-
+      
     });
 
 
