@@ -52,7 +52,7 @@
        $(".humidity").text("Humidity: " + humidity + "%");
        $(".wind").text("Wind Speed: " + wind);
          // query2 below called for the UV which was pulled by the longitude and latitude of the city term specified above.
-       var queryURL2 = `http://api.openweathermap.org/data/2.5/uvi?appid=43f958adadb070693b1f19cfabbcb491&lat=${lat}&lon=${lon}`;
+       var queryURL2 = `https://api.openweathermap.org/data/2.5/uvi?appid=43f958adadb070693b1f19cfabbcb491&lat=${lat}&lon=${lon}`;
        $.ajax({
          url: queryURL2,
          method: "GET",
@@ -88,7 +88,7 @@
                    $("<p>").text(moment.unix(day.dt).format("MMM Do YY")),
                    $("<img>").attr(
                      "src",
-                     "http://openweathermap.org/img/wn/" + icon + "@2x.png"
+                     "https://openweathermap.org/img/wn/" + icon + "@2x.png"
                    ),
                    $("<p>").text(description),
                    $("<p>").text("Temp: " + Math.round(temp) + "\xB0 F"),
